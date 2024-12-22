@@ -6,7 +6,10 @@ router.get('/', async (req, res) => {
     try{
         const page = parseInt(req.query.page) || 1;
         const limit = parseInt(req.query.limit) || 10;
-        const listings = await listingModel.find()
+        let tags = req.query.tags;
+        if(tags)
+            tags = tags.split(',');
+        const listings = await listingModel.find({tags: {$in: tags}})
             .skip((page - 1) * limit)
             .limit(limit);
         const totalListings = await listingModel.countDocuments();

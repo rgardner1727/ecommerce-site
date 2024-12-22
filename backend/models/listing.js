@@ -4,6 +4,7 @@ const schema = mongoose.Schema;
 const listing = new schema({
     title: {type: String, required: true},
     description: {type: String, required: true},
+    price: {type: Number, required: true},
     dateListed: {type: Date, required: true},
     dateExpires: {type: Date, required: true},
     tags: {type: [String], required: false},

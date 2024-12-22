@@ -29,6 +29,7 @@ router.post('/:username', authenticateToken, async (req, res) => {
         const newListing = new listingModel({
             title: req.body.title,
             description: req.body.description,
+            price: req.body.price,
             dateListed: dateListed,
             dateExpires: dateExpires,
             tags: req.body.tags,
