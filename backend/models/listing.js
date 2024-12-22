@@ -6,7 +6,7 @@ const listing = new schema({
     description: {type: String, required: true},
     dateListed: {type: Date, required: true},
     dateExpires: {type: Date, required: true},
-    tags: {type: [], required: false},
+    tags: {type: [String], required: false},
     views: {type: Number, required: true},
     username: {type: String, required: true}
 })

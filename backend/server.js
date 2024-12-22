@@ -7,6 +7,7 @@ require('dotenv').config();
 const registerRouter = require('./routes/registerRoute');
 const loginRouter = require('./routes/loginRoute');
 const userRouter = require('./routes/userRoute');
+const listingsRouter = require('./routes/listings');
 
 app.use(express.json());
 app.use(cors(
@@ -19,6 +20,7 @@ app.use(cors(
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/users', userRouter);
+app.use('/listings', listingsRouter);
 
 mongoose.connect(process.env.DATABASE_URL)
     .then(() => console.log('Successfully connected to database.'))
