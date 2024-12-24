@@ -4,9 +4,8 @@ const userModel = require('../models/user');
 const listingModel = require('../models/listing');
 const authenticateToken = require('../middleware/authenticateToken');
 
-router.get('/:username', authenticateToken, async (req, res) => {
+router.get('/:username', async (req, res) => {
     try{
-        console.log(req.params.username);
         const user = await userModel.findOne({username: req.params.username});
         if(!user)
             return res.status(404).send('Could not find user.');
@@ -19,7 +18,7 @@ router.get('/:username', authenticateToken, async (req, res) => {
     }
 })
 
-router.post('/:username', authenticateToken, async (req, res) => {
+router.post('/:username', async (req, res) => {
     try{
         const user = await userModel.findOne({username: req.params.username});
         if(!user)
@@ -47,6 +46,11 @@ const createDateExpires = (dateListed, daysExpiresIn) => {
     const dateExpires = new Date(dateListed);
     dateExpires.setDate(dateExpires.getDate() + daysExpiresIn);
     return dateExpires;
+}
+
+const sortTags = (req) => {
+    let tags = req.query.tags.split(',');
+    return tags.sort();
 }
 
 module.exports = router;

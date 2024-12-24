@@ -6,8 +6,9 @@ require('dotenv').config();
 
 const registerRouter = require('./routes/registerRoute');
 const loginRouter = require('./routes/loginRoute');
-const userRouter = require('./routes/userRoute');
-const listingsRouter = require('./routes/listings');
+const userListingsRouter = require('./routes/userListingsRoute');
+const allListingsRouter = require('./routes/allListingsRoute');
+const userCartRouter = require('./routes/userCartRoute');
 
 app.use(express.json());
 app.use(cors(
@@ -19,8 +20,9 @@ app.use(cors(
 
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-app.use('/users', userRouter);
-app.use('/listings', listingsRouter);
+app.use('/users', userListingsRouter);
+app.use('/listings', allListingsRouter);
+app.use('/carts', userCartRouter);
 
 mongoose.connect(process.env.DATABASE_URL)
     .then(() => console.log('Successfully connected to database.'))
