@@ -50,4 +50,22 @@ router.post('/:username', async (req, res) => {
     }
 })
 
+router.delete('/:username/:itemId', async (req, res) => {
+    try{
+        const user = await userModel.findOne({username: req.params.username});
+        if(!user)
+            return res.status(404).send('Could not remove item from cart. User does not exist.');
+        const cart = await userCartModel.findOne({username: user.username});
+        if(!cart)
+            return res.status(404).send('Could not remove items from cart. Cart is empty.');
+        if(!cart.cartItems.includes(req.params.itemId))
+            return res.status(404).send('Could not remove item from cart. Item is not in cart.');
+        await userCartModel.updateOne({username: user.username}, {$pull: {cartItems: req.params.itemId}});
+        res.status(204).send('Item removed from cart.');
+    }catch(err){
+        console.log(err);
+        res.status(500).send('Error removing item from cart.');
+    }
+})
+
 module.exports = router;
