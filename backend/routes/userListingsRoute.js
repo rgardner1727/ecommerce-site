@@ -25,13 +25,14 @@ router.post('/:username', async (req, res) => {
             return res.status(404).send('Cannot create listing. User does not exist.');
         const dateListed = new Date();
         const dateExpires = createDateExpires(dateListed, req.body.listingLength);
+        const tags = req.body.tags.sort();
         const newListing = new listingModel({
             title: req.body.title,
             description: req.body.description,
             price: req.body.price,
             dateListed: dateListed,
             dateExpires: dateExpires,
-            tags: req.body.tags,
+            tags: tags,
             views: 0,
             username: req.params.username
         })
@@ -52,12 +53,13 @@ router.put('/:username/:listingId', async (req, res) => {
             return res.status(404).send('Could not update listing. Listing does not exist.');
         const dateListed = listing.dateListed;
         const dateExpires = createDateExpires(dateListed, req.body.listingLength);
+        const tags = req.body.tags.sort();
         await listingModel.updateOne({_id: listing._id}, {$set: {
             title: req.body.title,
             description: req.body.description,
             price: req.body.price,
             dateExpires: dateExpires,
-            tags: req.body.tags
+            tags: tags
         }});
         res.status(204).send('Listing updated succesfully.');
     }catch(err){
@@ -86,11 +88,6 @@ const createDateExpires = (dateListed, daysExpiresIn) => {
     const dateExpires = new Date(dateListed);
     dateExpires.setDate(dateExpires.getDate() + daysExpiresIn);
     return dateExpires;
-}
-
-const sortTags = (req) => {
-    let tags = req.query.tags.split(',');
-    return tags.sort();
 }
 
 module.exports = router;
