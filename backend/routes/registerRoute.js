@@ -4,7 +4,9 @@ const userModel = require('../models/user');
 const bcrypt = require('bcrypt');
 
 router.post('/', async (req, res) => {
-    const {username, email, password} = req.body;
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
     try{
         const userByUsername = await userModel.findOne({username: username});
         if(userByUsername)

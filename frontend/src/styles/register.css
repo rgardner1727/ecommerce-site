@@ -1,0 +1,100 @@
+:root {
+    --accent-color: rgb(30, 30, 255);
+    --text-color-dark: #333;
+    --border-color-dark: #333;
+    --shadow-color-light: #ccc;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.form {
+    border-radius: 10px;
+    box-shadow: 0 0 8px var(--border-color-dark);
+    padding: 10px 5px;
+}
+
+.form-header {
+    text-align: center;
+    color: var(--text-color-dark);
+}
+
+.server-error-message {
+    color: red;
+}
+
+.error-message {
+    color: red;
+}
+
+.form-fieldset {
+    border: none;
+}
+
+.form-label {
+    display: block;
+    color: var(--text-color-dark);
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+}
+
+.form-input:hover {
+    border-color: var(--accent-color);
+}
+
+.form-button {
+    display: block;
+    width: 100%;
+    color: #eee;
+    background-color: var(--accent-color);
+    border: none;
+    transition: border-radius 0.2s ease;
+}
+
+.form-button:hover {
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 240px){
+    .form-header {
+        padding: 10px 20px;
+    }
+
+    .server-error-message{
+        font-size: .75rem;
+        text-align: center;
+    }
+
+    .error-message {
+        font-size: .75rem;
+    }
+
+    .form-fieldset {
+        padding: 5px;
+    }
+
+    .form-label {
+        font-size: 1rem;
+    }
+
+    .form-input {
+        font-size: .875rem;
+        padding: 5px;
+    }
+
+    .form-button {
+        font-size: 1.125rem;
+        padding: 5px 10px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+
+}
