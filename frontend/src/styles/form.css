@@ -1,0 +1,139 @@
+.main {
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    border: none;
+    padding: 10px;
+}
+
+.form-header {
+    color: var(--dark-text);
+}
+
+.server-error-message {
+    color: red;
+}
+
+.form-fieldset {
+    border: none;
+}
+
+.form-label {
+    display: block;
+}
+
+.form-input {
+    width: 100%;
+}
+
+.error-message {
+    color: red;
+}
+
+.form-button {
+    width: 100%;
+    color: var(--dark-text);
+    font-weight: bold;
+}
+
+.alternate-link  {
+    text-decoration: none;
+    color: var(--dark-text);
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        width: 300px;
+    }
+    
+    .form-header {
+        font-size: 2.25rem;
+        margin-bottom: 5px;
+    }
+
+    .server-error-message {
+        font-size: .875rem;
+        text-align: center;
+    }
+
+    .form-fieldset {
+        margin: 5px 0px;
+    }
+    
+    .form-label {
+        margin-bottom: 2.5px;
+        font-size: 1.25rem;
+    }
+
+    .form-input {
+        margin-bottom: 1.25px;
+        font-size: .975rem;
+        padding: 5px;
+    }
+
+    .error-message {
+        font-size: .875rem;
+    }
+
+    .form-button {
+        margin: 5px 0px 2.5px 0px;
+        padding: 10px 20px;
+        font-size: 1.5rem;
+    }
+
+    .alternate-link {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 481px) {
+    .form {
+        width: 430px;
+    }
+
+    .form-header {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .server-error-message {
+        font-size: .925rem;
+        text-align: center;
+    }
+
+    .form-fieldset {
+        margin: 10px 0px;
+    }
+
+    .form-label {
+        margin-bottom: 2.5px;
+        font-size: 1.5rem;
+    }
+
+    .form-input {
+        margin-bottom: 1.25px;
+        font-size: 1rem;
+        padding: 5px;
+    }
+
+    .error-message {
+        font-size: .925rem;
+    }
+
+    .form-button {
+        margin: 10px 0px 5px 0px;
+        padding: 10px 20px;
+        font-size: 1.75rem;
+    }
+
+    .alternate-link {
+        font-size: 1.25rem;
+    }
+}

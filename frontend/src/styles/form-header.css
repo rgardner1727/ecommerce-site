@@ -1,0 +1,40 @@
+.nav {
+    height: 100%;
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.nav-title {
+    text-decoration: none;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--dark-text);
+}
+
+.nav-list {
+    margin-left: auto;
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-item-optional {
+    margin-right: 7.5px;
+    color: var(--light-text);
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+.nav-item-link {
+    text-decoration: none ;
+    font-weight: bold;
+    color: var(--dark-text);
+}
+
+@media screen and (max-width: 480px){
+    .nav-item-optional {
+        display: none;
+    }
+}

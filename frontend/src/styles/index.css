@@ -8,3 +8,14 @@ html, body, #root {
   height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+#root {
+  display: grid;
+  grid-template-rows: 75px auto 100px;
+}
+
+:root {
+  font-size: 16px;
+  --dark-text: #333;
+  --light-text: #555;
+}

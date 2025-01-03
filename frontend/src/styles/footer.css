@@ -1,0 +1,26 @@
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.contacts-header {
+    text-align: center;
+    margin-bottom: 7.5px;
+    color: var(--dark-text);
+}
+
+.contacts-list {
+    display: flex;
+    list-style-type: none;
+}
+
+.contacts-item {
+    margin: 0px 5px;
+    text-align: center;
+    width: 75px;
+}
+
+.contacts-item-link {
+    text-decoration: none;
+    color: var(--dark-text);
+}
